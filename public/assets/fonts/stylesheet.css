@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Mont-Trial';
+    src: url('Mont-Trial-Bold.eot');
+    src: local('Mont-Trial Bold'), local('Mont-Trial-Bold'),
+        url('Mont-Trial-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Mont-Trial-Bold.woff2') format('woff2'),
+        url('Mont-Trial-Bold.woff') format('woff'),
+        url('Mont-Trial-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont-Trial';
+    src: url('Mont-Trial-Regular.eot');
+    src: local('Mont-Trial Regular'), local('Mont-Trial-Regular'),
+        url('Mont-Trial-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Mont-Trial-Regular.woff2') format('woff2'),
+        url('Mont-Trial-Regular.woff') format('woff'),
+        url('Mont-Trial-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Mont Demo';
+    src: url('MontDemo-ExtraLight.eot');
+    src: local('Mont Demo ExtraLight'), local('MontDemo-ExtraLight'),
+        url('MontDemo-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('MontDemo-ExtraLight.woff2') format('woff2'),
+        url('MontDemo-ExtraLight.woff') format('woff'),
+        url('MontDemo-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mont Demo';
+    src: url('MontDemo-Heavy.eot');
+    src: local('Mont Demo Heavy'), local('MontDemo-Heavy'),
+        url('MontDemo-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('MontDemo-Heavy.woff2') format('woff2'),
+        url('MontDemo-Heavy.woff') format('woff'),
+        url('MontDemo-Heavy.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}

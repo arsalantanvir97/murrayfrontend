@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Profiler } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./Components/PrivateRoute";
+import ChangePassword from "./Screens/ChangePassword";
+import Customers from "./Screens/Customers";
+import Dashboard from "./Screens/Dashboard";
+import Invoice from "./Screens/Invoice";
+import Login from "./Screens/Login";
+import Notifications from "./Screens/Notifications";
+import Profile from "./Screens/Profile";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route path="/" component={Login} exact />
+      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <PrivateRoute exact path="/notifications" component={Notifications} />
+      <PrivateRoute exact path="/profile" component={Profile} />
+      <PrivateRoute exact path="/ChangePassword" component={ChangePassword} />
+      <PrivateRoute exact path="/Customers" component={Customers} />
+      <PrivateRoute exact path="/Invoice" component={Invoice} />
+
+    </Router>
   );
-}
+};
 
 export default App;
