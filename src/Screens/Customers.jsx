@@ -101,6 +101,10 @@ const Customers = ({ enable_dot }) => {
     }
   };
 
+  useEffect(() => {
+    console.log("window", window?.location.href.split("Customers")[0]);
+  }, [window]);
+
   const toggleActiveStatus = async (id) => {
     try {
       const res = await axios({
@@ -229,7 +233,68 @@ const Customers = ({ enable_dot }) => {
     return checkIfNum && e.preventDefault();
   }
 
-  const generateVoiceHandler = () => {
+  const generateInVoiceHandler = async () => {
+    try {
+      setloading(true);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${adminInfo.token}`
+        }
+      };
+      const res = await axios.post(
+        `${baseURL}/invoice/generateInvoice`,
+        {
+          userid: editid,
+          email,
+          services: inputfields,
+          total: totalcost,
+          url: window?.location?.href?.split("Customers")[0]
+        },
+        config
+      );
+      Swal.fire({
+        icon: "success",
+        title: "",
+        text: "Invoice generated successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setloading(false);
+
+      console.log("res", res);
+    } catch (error) {
+      setloading(false);
+      Swal.fire({
+        icon: "error",
+        title: "ERROR",
+        text: error?.response?.data?.message
+          ? error?.response?.data?.message
+          : "Internal Server Error",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      console.log("error", error?.response);
+      Toasty("error", `🦄 ${error?.response?.data?.message}!`);
+      setfullName("");
+      setemail("");
+      setphone("");
+      setaddress("");
+      setcountry("");
+      setloading("");
+      setisedit(false);
+      seteditid("");
+      setInputfields([
+        {
+          name: "",
+          description: "",
+          cost: "",
+          quantity: "",
+          total: ""
+        }
+      ]);
+    }
+    setloading(false);
+
     window?.$(".modal").modal("hide");
     window?.$(".modal-backdrop").remove();
   };
@@ -717,10 +782,10 @@ const Customers = ({ enable_dot }) => {
                     <div className="right">
                       <div className="text-center">
                         <h1 className="mt-5 ff-demo">Generate Invoice</h1>
-                        <p className="invoice-num mb-5">
+                        {/* <p className="invoice-num mb-5">
                           Invoice No :{" "}
                           {Math.floor(100000 + Math.random() * 900000)}
-                        </p>
+                        </p> */}
                       </div>
                       <div className="invoice-details">
                         <div className="row">
@@ -882,15 +947,19 @@ const Customers = ({ enable_dot }) => {
               </div>
             </div>
             <div className="modal-footer border-0 pt-4 pb-5 text-center d-flex justify-content-center flex-sm-row align-items-stretch">
-              <button
-                type="button"
-                className="btn orange-btn full-btn mx-5 my-0"
-                onClick={generateVoiceHandler}
-                // data-bs-toggle="modal"
-                // data-bs-target=".invoice-generated"
-              >
-                Generate Invoice
-              </button>
+              {!loading ? (
+                <button
+                  type="button"
+                  className="btn orange-btn full-btn mx-5 my-0"
+                  onClick={generateInVoiceHandler}
+                  // data-bs-toggle="modal"
+                  // data-bs-target=".invoice-generated"
+                >
+                  Generate Invoice
+                </button>
+              ) : (
+                <i className="fas fa-spinner fa-pulse"></i>
+              )}
             </div>
           </div>
         </div>

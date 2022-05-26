@@ -8,6 +8,7 @@ import Invoice from "./Screens/Invoice";
 import Login from "./Screens/Login";
 import Notifications from "./Screens/Notifications";
 import Profile from "./Screens/Profile";
+import InvoiceDetails from "./Screens/InvoiceDetails";
 
 const App = () => {
   return (
@@ -19,7 +20,11 @@ const App = () => {
       <PrivateRoute exact path="/ChangePassword" component={ChangePassword} />
       <PrivateRoute exact path="/Customers" component={Customers} />
       <PrivateRoute exact path="/Invoice" component={Invoice} />
-
+      <Route
+        exact
+        path="/InvoiceDetails/:id"
+        component={InvoiceDetails}
+      />
     </Router>
   );
 };

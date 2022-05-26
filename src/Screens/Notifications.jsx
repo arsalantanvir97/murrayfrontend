@@ -1,6 +1,54 @@
-import React from "react";
+import axios from "axios";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import Pagination from "../Components/Pagination";
+import { baseURL } from "../utils/api";
 
 const Notifications = () => {
+  const adminLogin = useSelector((state) => state.adminLogin);
+  const { adminInfo } = adminLogin;
+  const [loading, setloading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(10);
+  const [searchString, setSearchString] = useState("");
+  const [totalcost, settotalcost] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [status, setStatus] = useState("");
+  const [notificaitons, setnotificaitons] = useState("");
+
+  useEffect(() => {
+    handleGetNotifications();
+  }, [page, perPage, from, to, status, searchString]);
+
+  const handleGetNotifications = async () => {
+    setloading(true);
+    try {
+      const res = await axios({
+        url: `${baseURL}/notification/getAllNotificationlogs`,
+        method: "GET",
+        params: {
+          page,
+          perPage,
+          searchString,
+          from,
+          to,
+          status
+        },
+        headers: {
+          Authorization: `Bearer ${adminInfo.token}`
+        }
+      });
+      setloading(false);
+
+      console.log("res", res);
+      setnotificaitons(res.data?.notification);
+    } catch (err) {
+      console.log("err", err);
+      setloading(false);
+    }
+  };
   return (
     <div>
       <div className="app-content content">
@@ -21,149 +69,46 @@ const Notifications = () => {
                     <div className="card-body p-4 p-lg-5">
                       <div className=" row">
                         <div className="col-12">
-                          <div className="card">
-                            <div className="media">
-                              <div className="media-body align-self-center">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Aenean euismod bibendum
-                                  laoreet. Proin tis gravida dolor sit amet is
-                                  to accumsan et viverra justo commodo. Proin
-                                  sodales pulvinar tempor.
-                                </p>
-                                <div className="meta mt-1">
-                                  <time className="time-meta" dateTime>
-                                    March 25, 2020 - 10:30 PM
-                                  </time>
+                          {loading ? (
+                            <div
+                              style={{
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: "center"
+                              }}
+                            >
+                              <div className="custommloader"></div>
+                            </div>
+                          ) : notificaitons?.docs?.length > 0 ? (
+                            notificaitons?.docs?.map((not, index) => (
+                              <div className="card">
+                                <div className="media">
+                                  <div className="media-body align-self-center">
+                                    <p>{not?.body}</p>
+                                    <div className="meta text-right mt-1">
+                                      <time className="time-meta" dateTime>
+                                        {moment(not?.createdAt).fromNow()}{" "}
+                                      </time>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                          <div className="card">
-                            <div className="media">
-                              <div className="media-body align-self-center">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Aenean euismod bibendum
-                                  laoreet. Proin tis gravida dolor sit amet is
-                                  to accumsan et viverra justo commodo. Proin
-                                  sodales pulvinar tempor.
-                                </p>
-                                <div className="meta text-right mt-1">
-                                  <time className="time-meta" dateTime>
-                                    March 25, 2020 - 10:30 PM
-                                  </time>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="card">
-                            <div className="media">
-                              <div className="media-body align-self-center">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Aenean euismod bibendum
-                                  laoreet. Proin tis gravida dolor sit amet is
-                                  to accumsan et viverra justo commodo. Proin
-                                  sodales pulvinar tempor.
-                                </p>
-                                <div className="meta text-right mt-1">
-                                  <time className="time-meta" dateTime>
-                                    March 25, 2020 - 10:30 PM
-                                  </time>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="card">
-                            <div className="media">
-                              <div className="media-body align-self-center">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Aenean euismod bibendum
-                                  laoreet. Proin tis gravida dolor sit amet is
-                                  to accumsan et viverra justo commodo. Proin
-                                  sodales pulvinar tempor.
-                                </p>
-                                <div className="meta text-right mt-1">
-                                  <time className="time-meta" dateTime>
-                                    March 25, 2020 - 10:30 PM
-                                  </time>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="card">
-                            <div className="media">
-                              <div className="media-body align-self-center">
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Aenean euismod bibendum
-                                  laoreet. Proin tis gravida dolor sit amet is
-                                  to accumsan et viverra justo commodo. Proin
-                                  sodales pulvinar tempor.
-                                </p>
-                                <div className="meta text-right mt-1">
-                                  <time className="time-meta" dateTime>
-                                    March 25, 2020 - 10:30 PM
-                                  </time>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                            ))
+                          ) : (
+                            <p>No Invoice Found</p>
+                          )}
                         </div>
                       </div>
-                      <div className="row">
-                        <div className="col-sm-12 col-xxl-5 align-self-center text-center text-xxl-start">
-                          <div className="dataTables_info pl-2">
-                            Showing 10 out of 40 records
-                          </div>
-                        </div>
-                        <div className="col-sm-12 col-xxl-7 d-flex justify-content-center justify-content-xxl-end">
-                          <div className="dataTables_paginate">
-                            <ul className="pagination">
-                              <li className="paginate_button page-item previous disabled">
-                                <a href="#" className="page-link">
-                                  Previous
-                                </a>
-                              </li>
-                              <li className="paginate_button page-item active">
-                                <a href="#" className="page-link">
-                                  1
-                                </a>
-                              </li>
-                              <li className="paginate_button page-item">
-                                <a href="#" className="page-link">
-                                  2
-                                </a>
-                              </li>
-                              <li className="paginate_button page-item">
-                                <a href="#" className="page-link">
-                                  3
-                                </a>
-                              </li>
-                              <li className="paginate_button page-item">
-                                <a href="#" className="page-link">
-                                  4
-                                </a>
-                              </li>
-                              <li className="paginate_button page-item">
-                                <a href="#" className="page-link">
-                                  5
-                                </a>
-                              </li>
-                              <li
-                                className="paginate_button page-item next disabled"
-                                i
-                              >
-                                <a href="#" className="page-link">
-                                  Next
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+                      {notificaitons?.docs?.length > 0 && (
+                        <Pagination
+                          totalDocs={notificaitons?.totalDocs}
+                          totalPages={notificaitons?.totalPages}
+                          currentPage={notificaitons?.page}
+                          setPage={setPage}
+                          hasNextPage={notificaitons?.hasNextPage}
+                          hasPrevPage={notificaitons?.hasPrevPage}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

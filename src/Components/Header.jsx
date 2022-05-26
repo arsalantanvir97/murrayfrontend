@@ -39,7 +39,10 @@ const Header = () => {
   //     }
   //   } catch (error) {}
   // };
-
+const RedirectHandler=()=>{
+  console.log('RedirectHandler');
+  history?.push('/notifications')
+}
   return (
     <div id="header">
       <nav className="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
@@ -65,13 +68,13 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item d-md-none align-self-center pe-3">
-                <a
+                <Link
                   className="nav-link open-navbar-container"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbar-mobile"
+                 to='/notifications'
+                 
                 >
                   <i className="fa fa-ellipsis-v" />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -79,184 +82,17 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbar-mobile">
               <ul className="nav navbar-nav ms-auto justify-content-end">
                 <li className="dropdown dropdown-notification nav-item d-flex">
-                  <a
+                  <Link
                     className="nav-link nav-link-label align-self-center"
-                    href="#"
-                    data-bs-toggle="dropdown"
+                    to="#"
                     aria-expanded="true"
+                    onClick={RedirectHandler}
+
                   >
                     <i className="fas fa-bell" />{" "}
                     {/* <span class="badge badge-pill badge-default badge-danger badge-default badge-up">5</span> */}{" "}
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-end me-3 me-md-0 ms-3 ms-md-0">
-                    {/* <li class="dropdown-menu-header">
-                                <h6 class="dropdown-header">Notifications</h6>
-                                <span class="notification-tag badge badge-default badge-danger float-right m-0">5 New</span>
-                            </li> */}
-                    <li
-                      className="scrollable-container media-list ps-container ps-theme-dark"
-                      data-ps-id="63782363-01f0-264d-6e57-4e7fbe98d9d4"
-                    >
-                      <a href="javascript:void(0)">
-                        <div className="media d-flex">
-                          <div className="media-left flex-shrink-0 align-self-top">
-                            <i className="far fa-bell" />
-                          </div>
-                          <div className="media-body flex-grow-1">
-                            <h6 className="media-heading">
-                              New user has been registered on the platform
-                            </h6>
-                            <small>
-                              <time
-                                className="date-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                Dec19, 2020
-                              </time>
-                              <time
-                                className="time-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                10:30 AM{" "}
-                              </time>
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="javascript:void(0)">
-                        <div className="media d-flex">
-                          <div className="media-left flex-shrink-0 align-self-top">
-                            <i className="far fa-bell" />
-                          </div>
-                          <div className="media-body flex-grow-1">
-                            <h6 className="media-heading">
-                              New user has been registered on the platform
-                            </h6>
-                            <small>
-                              <time
-                                className="date-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                Dec19, 2020
-                              </time>
-                              <time
-                                className="time-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                10:30 AM{" "}
-                              </time>
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="javascript:void(0)">
-                        <div className="media d-flex">
-                          <div className="media-left flex-shrink-0 align-self-top">
-                            <i className="far fa-bell" />
-                          </div>
-                          <div className="media-body flex-grow-1">
-                            <h6 className="media-heading">
-                              New user has been registered on the platform
-                            </h6>
-                            <small>
-                              <time
-                                className="date-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                Dec19, 2020
-                              </time>
-                              <time
-                                className="time-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                10:30 AM{" "}
-                              </time>
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="javascript:void(0)">
-                        <div className="media d-flex">
-                          <div className="media-left flex-shrink-0 align-self-top">
-                            <i className="far fa-bell" />
-                          </div>
-                          <div className="media-body flex-grow-1">
-                            <h6 className="media-heading">
-                              New user has been registered on the platform
-                            </h6>
-                            <small>
-                              <time
-                                className="date-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                Dec19, 2020
-                              </time>
-                              <time
-                                className="time-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                10:30 AM{" "}
-                              </time>
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <a href="javascript:void(0)">
-                        <div className="media d-flex">
-                          <div className="media-left flex-shrink-0 align-self-top">
-                            <i className="far fa-bell" />
-                          </div>
-                          <div className="media-body flex-grow-1">
-                            <h6 className="media-heading">
-                              New user has been registered on the platform
-                            </h6>
-                            <small>
-                              <time
-                                className="date-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                Dec19, 2020
-                              </time>
-                              <time
-                                className="time-meta"
-                                dateTime="2015-06-11T18:29:20+08:00"
-                              >
-                                10:30 AM{" "}
-                              </time>
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <div
-                        className="ps-scrollbar-x-rail"
-                        style={{ left: "0px", bottom: "3px" }}
-                      >
-                        <div
-                          className="ps-scrollbar-x"
-                          tabIndex={0}
-                          style={{ left: "0px", width: "0px" }}
-                        />
-                      </div>
-                      <div
-                        className="ps-scrollbar-y-rail"
-                        style={{ top: "0px", right: "0px" }}
-                      >
-                        <div
-                          className="ps-scrollbar-y"
-                          tabIndex={0}
-                          style={{ top: "0px", height: "0px" }}
-                        />
-                      </div>
-                    </li>
-                    <li className="dropdown-menu-footer">
-                      <Link
-                        className="dropdown-item text-center"
-                        to="/notifications"
-                      >
-                        View All
-                      </Link>
-                    </li>
-                  </ul>
+                  </Link>
+              
                 </li>
                 <li className="dropdown dropdown-user nav-item">
                   <Link
