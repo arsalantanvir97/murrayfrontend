@@ -59,7 +59,7 @@ const Dashboard = () => {
                             <div className="card text-center">
                               <div className="card-title green-title pt-4">
                                 <img
-                                  src="../assets/images/invoice.png"
+                                  src="assets/images/invoice.png"
                                   alt=""
                                 />
                               </div>
@@ -87,7 +87,7 @@ const Dashboard = () => {
                           <div className="col-12 col-sm-6 col-md-6 mb-2">
                             <div className="card text-center">
                               <div className="card-title purple-title pt-4">
-                                <img src="../assets/images/group.png" alt="" />
+                                <img src="assets/images/group.png" alt="" />
                               </div>
                               <div className="card-body py-1">
                                 <div className="media align-items-center d-flex w-100">

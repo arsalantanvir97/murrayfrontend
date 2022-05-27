@@ -63,7 +63,7 @@ const RedirectHandler=()=>{
                   <img
                     className="brand-logo img-fluid"
                     alt="stack admin logo"
-                    src="../assets/images/logo-admin.png"
+                    src="assets/images/logo-admin.png"
                   />
                 </Link>
               </li>
@@ -107,7 +107,7 @@ const RedirectHandler=()=>{
                         src={
                           adminInfo?.userImage && adminInfo?.userImage !== null
                             ? `${imageURL}${adminInfo?.userImage}`
-                            : "../assets/images/online-avatar.png"
+                            : "assets/images/online-avatar.png"
                         }
                         alt="avatar"
                       />{" "}

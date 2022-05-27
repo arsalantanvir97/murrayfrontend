@@ -189,7 +189,7 @@ const ChangePassword = ({ history }) => {
                 </form>
               </div>
               <div className="col-12 col-lg-5 col-xxl-7 text-center d-none d-lg-block">
-                <img src="../images/forgot-pass-img.png" alt="" />
+                <img src="images/forgot-pass-img.png" alt="" />
               </div>
             </div>
           </div>
