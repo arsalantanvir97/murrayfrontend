@@ -9,8 +9,8 @@ import { ToastContainer } from "react-toastify";
 
 ReactDOM.render(
   <Provider store={store}>
-<ToastContainer />
-<App />
-</Provider>,
+    <ToastContainer />
+    <App />
+  </Provider>,
   document.getElementById("root")
 );

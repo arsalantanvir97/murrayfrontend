@@ -4,11 +4,11 @@ export let baseURL;
 export let imageURL;
 
 if (window.location.hostname == "localhost") {
-  baseURL = "https://localhost:6089/api";
-  imageURL = "https://localhost:6089/";
+  baseURL = "https://localhost:6090/api";
+  imageURL = "https://localhost:6090/";
 } else {
-  baseURL = "https://dev74.onlinetestingserver.com:6089/api";
-  imageURL = "https://dev74.onlinetestingserver.com:6089/";
+  baseURL = "https://dev74.onlinetestingserver.com:6090/api";
+  imageURL = "https://dev74.onlinetestingserver.com:6090/";
 }
 
 const api = axios.create({
