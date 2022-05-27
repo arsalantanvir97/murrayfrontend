@@ -160,6 +160,7 @@ const Invoice = () => {
                             <th className="sorting">Customer Name</th>
                             <th className="sorting">Service Name</th>
                             <th className="sorting">Generated On</th>
+                            <th className="sorting">Payment Status</th>
                             <th className="sorting">Total Cost</th>
                             <th className="sorting">Action</th>
                           </tr>
@@ -172,6 +173,9 @@ const Invoice = () => {
                                 <td>{inv?.userid?.fullName}</td>
                                 <td>{inv?.services[0]?.name}</td>
                                 <td>{moment(inv?.createdAt).format("LL")}</td>
+                                <td>
+                                  {inv?.isPaid ? "Paid" : "Not Paid"}
+                                </td>
                                 <td>
                                   <span>$</span>
                                   {inv?.total}
@@ -387,6 +391,15 @@ const Invoice = () => {
                     Download
                   </button>
                 )}
+                <button
+                  type="button"
+                  onClick={() =>
+                    navigator.clipboard.writeText(`${window?.location?.href?.split("Invoice")[0]}InvoiceDetails/${invoicedetail?._id}`)
+                  }
+                  className="btn orange-btn full-btn mx-5 my-0 mt-3"
+                >
+                  Copy Link
+                </button>
               </div>
             </div>
           </div>

@@ -129,6 +129,7 @@ const RedirectHandler=()=>{
                       href="javascript:void(0);"
                       data-bs-toggle="modal"
                       data-bs-target=".profile-logout"
+                      onClick={logOutHandler}
                     >
                       <i className="fa fa-power-off" />
                       Logout

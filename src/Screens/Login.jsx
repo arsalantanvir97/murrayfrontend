@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   adminLoginAction,
-  adminResetPasswordAction,
+  adminResetPasswordAction
 } from "../actions/adminActions";
 import Swal from "sweetalert2";
 import api from "../utils/api";
@@ -76,7 +76,7 @@ const Login = ({ history }) => {
             title: "SUCCESS",
             text: "Verification Code Sent to your mail",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 1500
           });
           setforgotpasswordModal(1);
         }
@@ -196,7 +196,7 @@ const Login = ({ history }) => {
                           </label>
                           <div className="position-relative">
                             <input
-                              type="password"
+                              type={showicon ? "password" : "text"}
                               className="form-control enter-input"
                               placeholder="Enter Your Passowrd"
                               value={password}
@@ -366,7 +366,7 @@ const Login = ({ history }) => {
                               </div>
                               <div
                                 style={{
-                                  height: 23,
+                                  height: 23
                                 }}
                               ></div>
                               <div className="form-group position-relative mb-1">
