@@ -92,7 +92,7 @@ const Invoice = () => {
                 </div>
               </div>
               <div className="dataTables_wrapper">
-                <div className="user-listing-top">
+              <div className="user-listing-top">
                   <div className="row align-items-end d-flex mb-3">
                     <div className="col-12 col-xl-5 col-xxl-3 align-items-start">
                       <div className="dataTables_filter d-flex justify-content-start flex-shrink-1 mt-3">
@@ -100,23 +100,23 @@ const Invoice = () => {
                           htmlFor
                           className="d-md-inline-block me-2 me-lg-3 my-0 align-self-center flex-shrink-0"
                         >
-                          Search
+                          Status
                         </label>
                         <div className="filter-wrap d-md-flex d-block flex-xl-column align-items-start align-items-xl-end justify-content-end">
                           <div className="select-wrapper d-block w-auto mb-0 mb-md-0 me-0 me-md-0 me-xl-0">
                             <select
-                              name
-                              className="form-control shadow-sm"
-                              id
                               value={status}
                               onChange={(e) => {
                                 setStatus(e.target.value);
                                 setPage(1);
                               }}
+                              name
+                              className="form-control shadow-sm"
+                              id
                             >
                               <option value={""}>Select</option>
-                              <option value={true}>Paid</option>
-                              <option value={false}>UnPaid</option>
+                              <option value={true}>Active</option>
+                              <option value={false}>Inactive</option>
                             </select>
                           </div>
                         </div>
@@ -173,9 +173,7 @@ const Invoice = () => {
                                 <td>{inv?.userid?.fullName}</td>
                                 <td>{inv?.services[0]?.name}</td>
                                 <td>{moment(inv?.createdAt).format("LL")}</td>
-                                <td>
-                                  {inv?.isPaid ? "Paid" : "Not Paid"}
-                                </td>
+                                <td>{inv?.isPaid ? "Paid" : "Not Paid"}</td>
                                 <td>
                                   <span>$</span>
                                   {inv?.total}
@@ -383,23 +381,29 @@ const Invoice = () => {
               </div>
               <div className="modal-footer border-0 pt-4 pb-5 text-center d-flex justify-content-center flex-sm-row align-items-stretch">
                 {!hideDownload && (
-                  <button
-                    type="button"
-                    onClick={printDocument}
-                    className="btn orange-btn full-btn mx-5 my-0"
-                  >
-                    Download
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      onClick={printDocument}
+                      className="btn orange-btn full-btn mx-5 my-0"
+                    >
+                      Download
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        navigator.clipboard.writeText(
+                          `${
+                            window?.location?.href?.split("Invoice")[0]
+                          }InvoiceDetails/${invoicedetail?._id}`
+                        )
+                      }
+                      className="btn orange-btn full-btn mx-5 my-0 mt-3"
+                    >
+                      Copy Link
+                    </button>{" "}
+                  </>
                 )}
-                <button
-                  type="button"
-                  onClick={() =>
-                    navigator.clipboard.writeText(`${window?.location?.href?.split("Invoice")[0]}InvoiceDetails/${invoicedetail?._id}`)
-                  }
-                  className="btn orange-btn full-btn mx-5 my-0 mt-3"
-                >
-                  Copy Link
-                </button>
               </div>
             </div>
           </div>

@@ -33,9 +33,9 @@ a { color: #000; text-decoration: none; transition: all 0.3s ease-out; }
 a:focus, a:hover, a:active { outline: 0; color:#000; }
 a img { border: 0; }
 img { max-width: 100%; width: auto; height:auto; }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Mont-Trial'; margin-top:0px; color:#333333; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Mont'; margin-top:0px; color:#333333; }
 html body .pace .pace-progress {background-color:transparent;}
-body { font-family: 'Mont-Trial'; font-weight: 400; font-size: 16px; color: #333333; background: #F5F5F5; transition: all .3s ease-in-out; }
+body { font-family: 'Mont'; font-weight: 400; font-size: 16px; color: #333333; background: #F5F5F5; transition: all .3s ease-in-out; }
 textarea { overflow: auto; resize: none; }
 
 /*******************
@@ -57,7 +57,7 @@ textarea { overflow: auto; resize: none; }
 /*******************
 	Global Elements  Start
 ***********************************/
-.ff-mont {font-family: 'Mont-Trial';}
+.ff-mont {font-family: 'Mont';}
 .ff-demo {font-family: 'Mont Demo';}
 .fs-14 {font-size: 14px;}
 .fs-20 {font-size: 20px;}
@@ -587,6 +587,8 @@ html body .content-wrapper {padding-left: 50px !important;padding-right: 50px !i
 	/* .page-title .btn { min-width: auto; font-size: 16px; padding-left: 25px; padding-right: 25px; } */
 
 	.modal-body h3.modal-title { font-size: 25px; }
+	.select-wrapper {width: 100%;}
+	.card-chart select.form-control {width: 100%;}
 }
 	
 @media (min-width: 0px) and (max-width: 991px) {

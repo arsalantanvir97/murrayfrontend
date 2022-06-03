@@ -389,7 +389,7 @@ const Login = ({ history }) => {
                                     <i
                                       onClick={() => setshowicon3(!showicon3)}
                                       className={
-                                        showicon2
+                                        showicon3
                                           ? "fa enter-icon-3 right-icon fa-eye-slash right-icon-90"
                                           : "fa enter-icon-3 right-icon fa-eye right-icon-90"
                                       }

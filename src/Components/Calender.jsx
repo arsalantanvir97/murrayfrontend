@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 
-const Calender = ({setFrom,from,setTo,to}) => {
+const Calender = ({ setFrom, from, setTo, to }) => {
   return (
     <>
       {" "}
@@ -15,12 +15,12 @@ const Calender = ({setFrom,from,setTo,to}) => {
           </label>
           <div className="d-sm-flex d-block flex-grow-1">
             <div className="input-wrap me-0 me-sm-2 mb-2 mb-sm-0">
-             <DatePicker
-          selected={from}
-          placeholderText="Select a starting date"
-          onChange={(from) => setFrom(from)}
-          className="sort-date customdate form-control"
-        />
+              <DatePicker
+                selected={from}
+                placeholderText="Select a starting date"
+                onChange={(from) => setFrom(from)}
+                className="sort-date customdate form-control"
+              />
             </div>
           </div>
         </div>
@@ -35,12 +35,12 @@ const Calender = ({setFrom,from,setTo,to}) => {
           </label>
           <div className="d-sm-flex d-block flex-grow-1">
             <div className="input-wrap me-0 me-sm-2 mb-2 mb-sm-0">
-            <DatePicker
-          selected={to}
-          placeholderText="Select an ending date"
-          onChange={(to) => setTo(to)}
-          className="sort-date customdate form-control"
-        />
+              <DatePicker
+                selected={to}
+                placeholderText="Select an ending date"
+                onChange={(to) => setTo(to)}
+                className="sort-date customdate form-control"
+              />
             </div>
           </div>
         </div>

@@ -18,19 +18,24 @@ const Sidebar = (props) => {
                 <a
                   className="nav-link menu-toggle hidden-xs is-active"
                   href="#"
+                  target='_self'
                 >
                   <i className="ft-menu font-large-1" />
                 </a>
               </li>
               <li className="nav-item align-self-center flex-grow-1 text-center">
-                <Link className="navbar-brand" to="/dashboard">
+                <a
+                  className="navbar-brand"
+                  href="/dashboard"
+                  target='_self'
+                >
                   {" "}
                   <img
                     className="brand-logo img-fluid"
                     alt="stack admin logo"
                     src="assets/images/logo-admin.png"
                   />
-                </Link>
+                </a>
               </li>
               <li className="nav-item d-md-none align-self-center pe-3">
                 <a
@@ -55,7 +60,7 @@ const Sidebar = (props) => {
                   : "nav-item"
               }
             >
-              <Link to="/dashboard">
+              <Link to="/dashboard" target='_self'>
                 <svg
                   id="Group_25619"
                   data-name="Group 25619"
@@ -105,7 +110,7 @@ const Sidebar = (props) => {
                   : "nav-item"
               }
             >
-              <Link to="/Customers">
+              <Link to="/Customers" target='_self'>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="22.412"
@@ -158,7 +163,7 @@ const Sidebar = (props) => {
                   : "nav-item"
               }
             >
-              <Link to="/Invoice">
+              <Link to="/Invoice" target='_self'>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="23.649"

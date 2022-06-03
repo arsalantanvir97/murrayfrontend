@@ -591,12 +591,11 @@ const Customers = ({ enable_dot }) => {
                             Country <span className="text-danger">*</span>
                           </label>
                           <select
-                            name
                             placeholder="Select Country"
-                            className="form-control"
+                            className="form-control shadow-sm"
+                            color="#000"
                             value={country}
                             onChange={(e) => {
-                              console.log("eeee", e);
                               setcountry(e.target.value);
                             }}
                           >

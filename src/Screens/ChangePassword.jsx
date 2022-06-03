@@ -78,13 +78,13 @@ const ChangePassword = ({ history }) => {
                   <div className="row form-group">
                     <div className="col-12">
                       <label className="fw-medium ps-1 mb-2">
-                        Change Password<span className="text-danger">*</span>
+                        Current Password<span className="text-danger">*</span>
                       </label>
                       <div className="position-relative">
                         <input
                           type={showicon ? "password" : "text"}
                           className="form-control enter-input"
-                          placeholder="Enter New Password"
+                          placeholder="Enter Current Password"
                           value={existingpassword}
                           onChange={(e) => {
                             setexistingpassword(e.target.value);

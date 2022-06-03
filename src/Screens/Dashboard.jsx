@@ -55,7 +55,7 @@ const Dashboard = () => {
                     <div className="row d-flex justify-content-center">
                       <div className="col-12 col-md-12 col-lg-10 col-xl-10 col-xxl-8">
                         <div className="row">
-                          <div className="col-12 col-sm-6 col-md-6 mb-2">
+                          <div className="col-12 col-lg-6 mb-2">
                             <div className="card text-center">
                               <div className="card-title green-title pt-4">
                                 <img
@@ -84,7 +84,7 @@ const Dashboard = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="col-12 col-sm-6 col-md-6 mb-2">
+                          <div className="col-12 col-lg-6 mb-2">
                             <div className="card text-center">
                               <div className="card-title purple-title pt-4">
                                 <img src="assets/images/group.png" alt="" />
