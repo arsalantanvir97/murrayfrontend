@@ -166,9 +166,9 @@ const Login = ({ history }) => {
                   </div>
                   <div className="col-12 col-lg-6">
                     <div className="right">
-                      <div className="logo text-center">
+                      {/* <div className="logo text-center">
                         <img src="assets/images/logo.png" alt="" />
-                      </div>
+                      </div> */}
                       <h1 className="mt-5">Login</h1>
                       <p className="mb-5">Please Login to Continue</p>
                       <form
