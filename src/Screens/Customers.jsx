@@ -326,7 +326,7 @@ const Customers = ({ enable_dot }) => {
               <div className="dataTables_wrapper">
                 <div className="user-listing-top">
                   <div className="row align-items-end d-flex mb-3">
-                    <div className="col-12 col-xl-5 col-xxl-3 align-items-start">
+                    <div className="col-12 col-xl-6 col-xxl-3 align-items-start">
                       <div className="dataTables_filter d-flex justify-content-start flex-shrink-1 mt-3">
                         <label
                           htmlFor

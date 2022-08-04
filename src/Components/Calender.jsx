@@ -5,7 +5,7 @@ const Calender = ({ setFrom, from, setTo, to }) => {
   return (
     <>
       {" "}
-      <div className="col-12 col-xl-3 col-xxl-3 align-items-start">
+      <div className="col-12 col-xl-6 col-xxl-3 align-items-start">
         <div className="dataTables_filter d-flex justify-content-start flex-shrink-1 mt-3">
           <label
             htmlFor
@@ -25,7 +25,7 @@ const Calender = ({ setFrom, from, setTo, to }) => {
           </div>
         </div>
       </div>
-      <div className="col-12 col-xl-3 col-xxl-3 align-items-start">
+      <div className="col-12 col-xl-6 col-xxl-3 align-items-start">
         <div className="dataTables_filter d-flex justify-content-start flex-shrink-1 mt-3">
           <label
             htmlFor

@@ -35,7 +35,7 @@ const InvoiceDetails = ({ match }) => {
 
     const config = {
       header: {
-        Authorization: "Bearer sk_test_OVw01bpmRN2wBK2ggwaPwC5500SKtEYy9V"
+        Authorization: "Bearer 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"
       }
     };
     const response = await axios.post(
@@ -253,7 +253,7 @@ const InvoiceDetails = ({ match }) => {
                   <StripeCheckout
                     label="Pay Now"
                     email={invoiceDetails?.userid?.email}
-                    stripeKey="pk_test_IdCqGO7sona7aWZqqiXTs3MN00vl1vkEQa"
+                    stripeKey="pk_live_51KsXrdIgalgexynM021IA5It3Q5YJ8ZdTsmfw9nW0C8Ox9xqigP93vTiII4KCA2o2ZPQoM9RjFWLRRySsSvpl0da00DGkge5Df"
                     token={handleToken}
                     amount={invoiceDetails?.total * 100}
                   ></StripeCheckout>

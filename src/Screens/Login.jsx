@@ -178,12 +178,12 @@ const Login = ({ history }) => {
                       >
                         <div className="form-group">
                           <label htmlFor>
-                            Username <span className="text-black">*</span>
+                            Email <span className="text-black">*</span>
                           </label>
                           <input
                             type="email"
                             className="form-control"
-                            placeholder="Enter Your Username"
+                            placeholder="Enter Your Email"
                             value={email}
                             onChange={(e) => {
                               setemail(e.target.value);
