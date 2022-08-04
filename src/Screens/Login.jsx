@@ -158,7 +158,7 @@ const Login = ({ history }) => {
                   <div className="col-12 col-lg-6 d-flex align-items-stretch">
                     <div className="left d-flex align-items-center justify-content-center position-relative">
                       <img
-                        src="assets/images/login-logo.png"
+                        src="assets/images/login-logo.jpg"
                         alt=""
                         className="img-fluid"
                       />

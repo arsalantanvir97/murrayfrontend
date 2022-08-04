@@ -18,12 +18,12 @@ body.vertical-layout.vertical-menu .navbar .navbar-brand img {width:100%; max-wi
 
 .main-menu.menu-light .navigation > li.hover > a,
 .main-menu.menu-light .navigation > li:hover > a,
-.main-menu.menu-light .navigation > li.active > a {border: 2px solid #CC4742;border-radius: 50px;background-color: rgb(204, 71, 66, 0.3);color: #CC4742; font-weight:500;}
+.main-menu.menu-light .navigation > li.active > a {border: 2px solid #04112B;border-radius: 50px;background-color: rgba(0, 0, 2, 0.3);color: #04112B; font-weight:500;}
 
 .main-menu.menu-light .navigation > li:hover > a svg path,
 .main-menu.menu-light .navigation > li:hover > a svg circle,
 .main-menu.menu-light .navigation > li.active > a svg circle,
-.main-menu.menu-light .navigation > li.active > a svg path {fill: #CC4742;}
+.main-menu.menu-light .navigation > li.active > a svg path {fill: #04112B;}
 
 .main-menu.menu-light .navigation > li:hover #Group_25621 #Op_component_2, .main-menu.menu-light .navigation > li:hover #Group_25621 #Op_component_3,
 .main-menu.menu-light .navigation > li:hover #Group_25621 #Op_component_4 {fill: #fff;}

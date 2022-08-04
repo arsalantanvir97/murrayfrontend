@@ -12,7 +12,7 @@ import InvoiceDetails from "./Screens/InvoiceDetails";
 
 const App = () => {
   return (
-    <Router basename="/">
+    <Router basename="/murrayservices">
       <Route path="/" component={Login} exact />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
       <PrivateRoute exact path="/notifications" component={Notifications} />

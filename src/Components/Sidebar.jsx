@@ -33,7 +33,7 @@ const Sidebar = (props) => {
                   <img
                     className="brand-logo img-fluid"
                     alt="stack admin logo"
-                    src="assets/images/logo-admin.png"
+                    src="assets/images/logo-admin.jpg"
                   />
                 </a>
               </li>

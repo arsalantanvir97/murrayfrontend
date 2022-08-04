@@ -14,8 +14,10 @@ body {
 }
 
 .pagination > li {
+  color: #f3f3f3;
+
   display: inline-block;
-  background-color: #E6A0A1;
+  /* background-color: #070425ec; */
   
 }
 
@@ -24,18 +26,21 @@ body {
   padding: 8px 16px;
   text-decoration: none;
     border-radius: 14px;
+    color: #f3f3f3;
+
 
 }
 
 .pagination > li > a:hover:not(.active) {
   border-radius: 5px;
-  background-color: #CE3E46;
+  background-color: #070425ec;
+  color: #f3f3f3;
 
 }
 .custommloader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #E6A0A1;
+  border-top: 16px solid #070425ec;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
