@@ -6,12 +6,17 @@ import { Link } from "react-router-dom";
 import { baseURL } from "../utils/api";
 import StripeCheckout from "react-stripe-checkout";
 import Swal from "sweetalert2";
+import CreditCardInput from "react-credit-card-input";
+import Toasty from "../utils/toast";
 
 const InvoiceDetails = ({ match }) => {
   const adminLogin = useSelector((state) => state.adminLogin);
   const { adminInfo } = adminLogin;
   const [invoiceDetails, setinvoiceDetails] = useState();
   const [loading, setloading] = useState(false);
+  const [cvv, setcvv] = useState("");
+  const [cc, setcc] = useState("");
+  const [expire, setexpire] = useState("");
 
   useEffect(() => {
     getSingleInvoice();
@@ -21,8 +26,7 @@ const InvoiceDetails = ({ match }) => {
     try {
       const res = await axios({
         url: `${baseURL}/invoice/invoiceDetails/${match?.params?.id}`,
-        method: "GET",
-      
+        method: "GET"
       });
       console.log("res", res);
       setinvoiceDetails(res?.data?.invoice);
@@ -30,63 +34,65 @@ const InvoiceDetails = ({ match }) => {
       console.log(err);
     }
   };
-  async function handleToken(token) {
+  useEffect(() => {
+    console.log("cc", cc);
+  }, [cc]);
+
+  async function paymentHandler(token) {
     setloading(true);
+    let expp = expire;
+    expp = expp.split(" ").join("");
+    expp = expp.replace("/", "");
 
-    const config = {
-      header: {
-        Authorization: "Bearer sk_test_OVw01bpmRN2wBK2ggwaPwC5500SKtEYy9V"
+    await axios.post(`${baseURL}/authorizecheckout`, {
+      cc: cc.split(" ").join(""),
+      cvv: String(cvv),
+      expire: expp,
+      amount: String(invoiceDetails?.total)
+    });
+    // const config = {
+    //   header: {
+    //     Authorization: "Bearer sk_test_OVw01bpmRN2wBK2ggwaPwC5500SKtEYy9V"
+    //   }
+    // };
+    // const response = await axios.post(
+    //   `${baseURL}/checkout`,
+    //   { token, product: 100 },
+    //   config
+    // );
+    // console.log("response", response);
+    // const { status } = response.data;
+
+    // console.log(
+    //   "res",
+    //   response.data.id,
+    //   response.data.status,
+    //   response.headers.date,
+    //   response.data.receipt_email
+    // );
+    // if (status === "succeeded") {
+    const res = await axios.post(`${baseURL}/invoice/makepayment`, {
+      id: match?.params?.id,
+      paymentDetails: {
+        paymentname: invoiceDetails?.userid?.email,
+        cardnumber: cc,
+        expirymonth: expire,
+        expiryyear: cvv
       }
-    };
-    const response = await axios.post(
-      `${baseURL}/checkout`,
-      { token, product: 100 },
-      config
-    );
-    console.log("response", response);
-    const { status } = response.data;
+    });
+    setloading(false);
 
-    console.log(
-      "res",
-      response.data.id,
-      response.data.status,
-      response.headers.date,
-      response.data.receipt_email
-    );
-    if (status === "succeeded") {
-      
-      const res = await axios.post(
-        `${baseURL}/invoice/makepayment`,
-        {
-          id: match?.params?.id,
-          paymentDetails: {
-            paymentname: response?.data?.receipt_email,
-            cardnumber: response?.data?.payment_method_details?.card?.last4,
-            expirymonth:
-              response?.data?.payment_method_details?.card?.exp_month,
-            expiryyear: response?.data?.payment_method_details?.card?.exp_year
-          }
-        },
-       
-      );
-      setloading(false);
-
-      Swal.fire({
-        icon: "success",
-        title: "",
-        text: "Payment Made Successfully",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      //       setpaymentname(response?.data?.receipt_email)
-      // setcardnumber(response?.data?.payment_method_details?.card?.last4)
-      // setexpirymonth(response?.data?.payment_method_details?.card?.exp_month)
-      // setexpiryyear(response?.data?.payment_method_details?.card?.exp_year)
-      console.log(status, "succes");
-    } else {
-      console.log(status, "fail");
-      setloading(false);
-    }
+    Swal.fire({
+      icon: "success",
+      title: "",
+      text: "Payment Made Successfully",
+      showConfirmButton: false,
+      timer: 1500
+    });
+    //       setpaymentname(response?.data?.receipt_email)
+    // setcardnumber(response?.data?.payment_method_details?.card?.last4)
+    // setexpirymonth(response?.data?.payment_method_details?.card?.exp_month)
+    // setexpiryyear(response?.data?.payment_method_details?.card?.exp_year)
 
     setloading(false);
     getSingleInvoice();
@@ -247,7 +253,7 @@ const InvoiceDetails = ({ match }) => {
                 </div>
               </div>
             </div>
-            {invoiceDetails?.isPaid === false && (
+            {/* {invoiceDetails?.isPaid === false && (
               <div className="modal-footer border-0 pt-4 pb-5 text-center d-flex justify-content-center flex-sm-row align-items-stretch">
                 {!loading ? (
                   <StripeCheckout
@@ -261,6 +267,51 @@ const InvoiceDetails = ({ match }) => {
                   <i className="fas fa-spinner fa-pulse"></i>
                 )}
               </div>
+            )} */}
+            {invoiceDetails?.isPaid === false && (
+              <>
+                <CreditCardInput
+                  cardNumberInputProps={{
+                    value: cc,
+                    onChange: (e) => {
+                      setcc(e.target.value);
+                    }
+                  }}
+                  cardExpiryInputProps={{
+                    value: expire,
+                    onChange: (e) => {
+                      setexpire(e.target.value);
+                    }
+                  }}
+                  cardCVCInputProps={{
+                    value: cvv,
+                    onChange: (e) => {
+                      setcvv(e.target.value);
+                    }
+                  }}
+                  fieldClassName="input"
+                />
+                <div className="form-group text-center mt-4 mb-0">
+                  {!loading ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        cc?.length > 0 && cvv?.length > 0 && expire?.length > 0
+                          ? paymentHandler()
+                          : Toasty(
+                              "error",
+                              `Please fill out all the required fields!`
+                            )
+                      }
+                      className="btn btn-login orange-btn full-btn"
+                    >
+                      Pay
+                    </button>
+                  ) : (
+                    <i className="fas fa-spinner fa-pulse"></i>
+                  )}
+                </div>
+              </>
             )}
           </div>
         </div>
