@@ -14,7 +14,7 @@ const InvoiceDetails = lazy(() => import("./Screens/InvoiceDetails"));
 const App = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <Router basename="/murrayservices">
+      <Router basename="/invoice">
         <Route path="/" component={Login} exact />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/notifications" component={Notifications} />

@@ -7,8 +7,8 @@ if (window.location.hostname == "localhost") {
   baseURL = "https://localhost:8052/api";
   imageURL = "https://localhost:8052/";
 } else {
-  baseURL = "https://dev74.onlinetestingserver.com:8052/api";
-  imageURL = "https://dev74.onlinetestingserver.com:8052/";
+  baseURL = "https://cntmservices.com:8052/api";
+  imageURL = "https://cntmservices.com:8052/";
 }
 
 const api = axios.create({
