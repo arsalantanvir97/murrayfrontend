@@ -33,8 +33,8 @@ const Sidebar = (props) => {
                   <img
                     className="brand-logo img-fluid"
                     alt="stack admin logo"
-                    src="assets/images/logo-admin.jpg"
-                    style={{maxHeight:83,maxWidth:196,minHeight:83,minWidth:196,}}
+                    src="assets/images/login-logo.jpg"
+                    style={{maxHeight:125,maxWidth:216,minHeight:125,minWidth:216,}}
 
                   />
                 </a>
