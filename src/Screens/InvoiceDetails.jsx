@@ -136,6 +136,23 @@ const InvoiceDetails = ({ match }) => {
               <div className="row">
                 <div className="col-12">
                   <div className="modal-add-customer">
+                  <div className="col-md-12 d-flex flex-column justify-content-between" style={{textAlign:'left'}}>
+                            <div>
+                              <p className="m-0">Business Contact:</p>
+                              <p className="m-0">954-993-2527</p>
+                            </div>
+                            <div>
+                              <p className="m-0 mt-1">Business Email:</p>
+                              <p className="m-0 abbb" onClick={(e) => {
+                                  window.location = `mailto:NSM@CNTMSERVICES.COM`
+                                  e.preventDefault()
+                                }} >NSM@CNTMSERVICES.COM</p>
+                            </div>
+                            <div>
+                              <p className="m-0 mt-1">Business Address:</p>
+                              <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
+                            </div>
+                          </div>
                     <div className="right">
                       <div className="text-center">
                         <h1 className="mt-5 ff-demo">Invoice Details</h1>

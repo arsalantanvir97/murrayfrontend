@@ -50,7 +50,9 @@ textarea { overflow: auto; resize: none; }
 .status.pending{ background-color: #163459;}
 
 
-
+.abbb:hover{
+	cursor: pointer;
+}
 
 
 

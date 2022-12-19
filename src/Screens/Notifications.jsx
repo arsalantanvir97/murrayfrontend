@@ -95,7 +95,7 @@ const Notifications = () => {
                               </div>
                             ))
                           ) : (
-                            <p>No Invoice Found</p>
+                            <p>No Notification Found</p>
                           )}
                         </div>
                       </div>

@@ -628,15 +628,15 @@ const Customers = ({ enable_dot }) => {
                               type="button"
                               onClick={() =>
                                 fullName?.length > 0 &&
-                                address?.length > 0 &&
-                                country?.length > 0 &&
-                                email?.length > 0 &&
-                                phone?.length > 0
+                                  address?.length > 0 &&
+                                  country?.length > 0 &&
+                                  email?.length > 0 &&
+                                  phone?.length > 0
                                   ? submitHandler()
                                   : Toasty(
-                                      "error",
-                                      `Please fill out all the required fields!`
-                                    )
+                                    "error",
+                                    `Please fill out all the required fields!`
+                                  )
                               }
                               className="btn px-4 orange-btn full-btn"
                             >
@@ -778,6 +778,23 @@ const Customers = ({ enable_dot }) => {
               <div className="row">
                 <div className="col-12">
                   <div className="modal-add-customer">
+                  <div className="col-md-12 d-flex flex-column justify-content-between">
+                            <div>
+                              <p className="m-0">Business Contact:</p>
+                              <p className="m-0">954-993-2527</p>
+                            </div>
+                            <div>
+                              <p className="m-0 mt-1">Business Email:</p>
+                              <p className="m-0 abbb" onClick={(e) => {
+                                  window.location = `mailto:NSM@CNTMSERVICES.COM`
+                                  e.preventDefault()
+                                }} >NSM@CNTMSERVICES.COM</p>
+                            </div>
+                            <div>
+                              <p className="m-0 mt-1">Business Address:</p>
+                              <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
+                            </div>
+                          </div>
                     <div className="right">
                       <div className="text-center">
                         <h1 className="mt-5 ff-demo">Generate Invoice</h1>
@@ -951,8 +968,8 @@ const Customers = ({ enable_dot }) => {
                   type="button"
                   className="btn orange-btn full-btn mx-5 my-0"
                   onClick={generateInVoiceHandler}
-                  // data-bs-toggle="modal"
-                  // data-bs-target=".invoice-generated"
+                // data-bs-toggle="modal"
+                // data-bs-target=".invoice-generated"
                 >
                   Generate Invoice
                 </button>

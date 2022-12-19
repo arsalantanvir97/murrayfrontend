@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Graph from "../Components/Graph";
 import { baseURL } from "../utils/api";
 
-const Dashboard = () => {
+const Dashboard = ({history}) => {
   const adminLogin = useSelector((state) => state.adminLogin);
   const { adminInfo } = adminLogin;
   const [loading, setloading] = useState(false);
@@ -13,7 +13,11 @@ const Dashboard = () => {
   const [year, setyear] = useState("");
 
   const [dashboarddata, setdashboarddata] = useState("");
-
+  useEffect(() => {
+    if (!adminInfo) {
+      history.replace("/");
+    }
+  }, []);
   useEffect(() => {
     handleGetDashboarddata();
   }, [year]);
