@@ -98,10 +98,11 @@ const InvoiceDetails = ({ match }) => {
     getSingleInvoice();
   }
   return (
-    <div className="app-content content">
+    <div className="app-content content" style={{ marginLeft: 30 }}>
       <div className="content-wrapper">
-        <div className="modal-dialog modal-lg modal-dialog-centered">
-          <div className="modal-content modal-login" style={{ width: "auto" }}>
+        <div className="modal-dialog modal-lg modal-dialog-centered modal-xl" style={{ textAlign: "center", minWidth: '70vw' }}
+        >
+          <div className="modal-content modal-login" >
             <div className="modal-header" style={{ borderBottom: "none" }}>
               <h5 className="modal-title" />
               {/* <button
@@ -136,23 +137,23 @@ const InvoiceDetails = ({ match }) => {
               <div className="row">
                 <div className="col-12">
                   <div className="modal-add-customer">
-                  <div className="col-md-12 d-flex flex-column justify-content-between" style={{textAlign:'left'}}>
-                            <div>
-                              <p className="m-0">Business Contact:</p>
-                              <p className="m-0">954-993-2527</p>
-                            </div>
-                            <div>
-                              <p className="m-0 mt-1">Business Email:</p>
-                              <p className="m-0 abbb" onClick={(e) => {
-                                  window.location = `mailto:NSM@CNTMSERVICES.COM`
-                                  e.preventDefault()
-                                }} >NSM@CNTMSERVICES.COM</p>
-                            </div>
-                            <div>
-                              <p className="m-0 mt-1">Business Address:</p>
-                              <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
-                            </div>
-                          </div>
+                    <div className="col-md-12 d-flex flex-column justify-content-between" style={{ textAlign: 'left' }}>
+                      <div>
+                        <p style={{ fontWeight: 'bold' }} className="m-0">Business Contact:</p>
+                        <p className="m-0">954-993-2527</p>
+                      </div>
+                      <div>
+                        <p style={{ fontWeight: 'bold' }} className="m-0 mt-1">Business Email:</p>
+                        <p className="m-0 abbb" onClick={(e) => {
+                          window.location = `mailto:NSM@CNTMSERVICES.COM`
+                          e.preventDefault()
+                        }} >NSM@CNTMSERVICES.COM</p>
+                      </div>
+                      <div>
+                        <p style={{ fontWeight: 'bold' }} className="m-0 mt-1">Business Address:</p>
+                        <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
+                      </div>
+                    </div>
                     <div className="right">
                       <div className="text-center">
                         <h1 className="mt-5 ff-demo">Invoice Details</h1>
@@ -211,6 +212,10 @@ const InvoiceDetails = ({ match }) => {
                               <thead>
                                 <tr>
                                   <th>Service Name</th>
+                                  <th>User Name</th>
+                                  <th>User Address</th>
+                                  <th>User Email</th>
+                                  <th>User Contact</th>
                                   <th>Description</th>
                                   <th>Unit Cost</th>
                                   <th>Quantity</th>
@@ -223,6 +228,18 @@ const InvoiceDetails = ({ match }) => {
                                     <tr>
                                       <td>
                                         <p>{invoi?.name}</p>
+                                      </td>
+                                      <td>
+                                        <p>{invoi?.username}</p>
+                                      </td>
+                                      <td>
+                                        <p>{invoi?.useraddress}</p>
+                                      </td>
+                                      <td>
+                                        <p>{invoi?.useremail}</p>
+                                      </td>
+                                      <td>
+                                        <p>{invoi?.usercontact}</p>
                                       </td>
                                       <td>
                                         <p>{invoi?.description}</p>
@@ -316,9 +333,9 @@ const InvoiceDetails = ({ match }) => {
                         cc?.length > 0 && cvv?.length > 0 && expire?.length > 0
                           ? paymentHandler()
                           : Toasty(
-                              "error",
-                              `Please fill out all the required fields!`
-                            )
+                            "error",
+                            `Please fill out all the required fields!`
+                          )
                       }
                       className="btn btn-login orange-btn full-btn"
                     >

@@ -35,6 +35,10 @@ const Customers = ({ enable_dot }) => {
   const [inputfields, setInputfields] = useState([
     {
       name: "",
+      username: "",
+      useraddress: "",
+      useremail: "",
+      usercontact: "",
       description: "",
       cost: "",
       quantity: "",
@@ -46,6 +50,10 @@ const Customers = ({ enable_dot }) => {
       ...inputfields,
       {
         name: "",
+        username: "",
+        useraddress: "",
+        useremail: "",
+        usercontact: "",
         description: "",
         cost: "",
         quantity: 0,
@@ -298,6 +306,9 @@ const Customers = ({ enable_dot }) => {
     window?.$(".modal").modal("hide");
     window?.$(".modal-backdrop").remove();
   };
+useEffect(() => {
+ console.log('inputfields',inputfields)
+}, [inputfields])
 
   return (
     <>
@@ -780,18 +791,18 @@ const Customers = ({ enable_dot }) => {
                   <div className="modal-add-customer">
                   <div className="col-md-12 d-flex flex-column justify-content-between">
                             <div>
-                              <p className="m-0">Business Contact:</p>
+                              <p style={{fontWeight:'bold'}} className="m-0">Business Contact:</p>
                               <p className="m-0">954-993-2527</p>
                             </div>
                             <div>
-                              <p className="m-0 mt-1">Business Email:</p>
+                              <p style={{fontWeight:'bold'}} className="m-0 mt-1">Business Email:</p>
                               <p className="m-0 abbb" onClick={(e) => {
                                   window.location = `mailto:NSM@CNTMSERVICES.COM`
                                   e.preventDefault()
                                 }} >NSM@CNTMSERVICES.COM</p>
                             </div>
                             <div>
-                              <p className="m-0 mt-1">Business Address:</p>
+                              <p style={{fontWeight:'bold'}} className="m-0 mt-1">Business Address:</p>
                               <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
                             </div>
                           </div>
@@ -841,6 +852,10 @@ const Customers = ({ enable_dot }) => {
                               <thead>
                                 <tr>
                                   <th>Service Name</th>
+                                  <th>User Name</th>
+                                  <th>User Address</th>
+                                  <th>User Email</th>
+                                  <th>User Contact</th>
                                   <th>Description</th>
                                   <th>Unit Cost</th>
                                   <th>Quantity</th>
@@ -858,6 +873,51 @@ const Customers = ({ enable_dot }) => {
                                           className="form-control"
                                           placeholder="Enter Service"
                                           value={inputfield.name}
+                                          onChange={(event) =>
+                                            handlechangeinput(index, event)
+                                          }
+                                        />
+                                      </td>
+                                      <td>
+                                        <input
+                                          type="text"
+                                          name="username"
+                                          className="form-control"
+                                          placeholder="Enter Name"
+                                          value={inputfield.username}
+                                          onChange={(event) =>
+                                            handlechangeinput(index, event)
+                                          }
+                                        />
+                                      </td> <td>
+                                        <input
+                                          type="text"
+                                          name="useraddress"
+                                          className="form-control"
+                                          placeholder="Enter Address"
+                                          value={inputfield.useraddress}
+                                          onChange={(event) =>
+                                            handlechangeinput(index, event)
+                                          }
+                                        />
+                                      </td> <td>
+                                        <input
+                                          type="text"
+                                          name="useremail"
+                                          className="form-control"
+                                          placeholder="Enter Email"
+                                          value={inputfield.useremail}
+                                          onChange={(event) =>
+                                            handlechangeinput(index, event)
+                                          }
+                                        />
+                                      </td> <td>
+                                        <input
+                                          type="text"
+                                          name="usercontact"
+                                          className="form-control"
+                                          placeholder="Enter Contact"
+                                          value={inputfield.usercontact}
                                           onChange={(event) =>
                                             handlechangeinput(index, event)
                                           }
