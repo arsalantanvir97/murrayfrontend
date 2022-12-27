@@ -262,6 +262,13 @@ const Invoice = () => {
                     <div className="modal-add-customer">
                     <div className="col-md-12 d-flex flex-column justify-content-between" style={{textAlign:'left'}}>
                             <div>
+                            <img
+                    className="brand-logo img-fluid"
+                    alt="stack admin logo"
+                    src="assets/images/login-logo.jpg"
+                    style={{maxHeight:125,maxWidth:216,minHeight:125,minWidth:216,marginBottom:15}}
+
+                  />
                               <p style={{fontWeight:'bold'}} className="m-0">Business Contact:</p>
                               <p className="m-0">954-993-2527</p>
                             </div>
@@ -287,11 +294,12 @@ const Invoice = () => {
                         <div className="invoice-details">
                           <div className="row">
                             <div className="col-md-6 d-flex flex-column justify-content-between">
-                              <div>
+                              <div>  <p className="m-0">Address:</p>
                                 <p className="m-0">
+
                                   {invoicedetail?.userid?.address}
                                 </p>
-                                <p className="m-0">Billing #.844-243-4219</p>
+                                {/* <p className="m-0">Billing #.844-243-4219</p> */}
                               </div>
                               <div>
                                 <p className="m-0">Payment Method:</p>

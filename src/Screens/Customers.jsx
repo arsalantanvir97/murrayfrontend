@@ -306,9 +306,9 @@ const Customers = ({ enable_dot }) => {
     window?.$(".modal").modal("hide");
     window?.$(".modal-backdrop").remove();
   };
-useEffect(() => {
- console.log('inputfields',inputfields)
-}, [inputfields])
+  useEffect(() => {
+    console.log('inputfields', inputfields)
+  }, [inputfields])
 
   return (
     <>
@@ -789,23 +789,31 @@ useEffect(() => {
               <div className="row">
                 <div className="col-12">
                   <div className="modal-add-customer">
-                  <div className="col-md-12 d-flex flex-column justify-content-between">
-                            <div>
-                              <p style={{fontWeight:'bold'}} className="m-0">Business Contact:</p>
-                              <p className="m-0">954-993-2527</p>
-                            </div>
-                            <div>
-                              <p style={{fontWeight:'bold'}} className="m-0 mt-1">Business Email:</p>
-                              <p className="m-0 abbb" onClick={(e) => {
-                                  window.location = `mailto:NSM@CNTMSERVICES.COM`
-                                  e.preventDefault()
-                                }} >NSM@CNTMSERVICES.COM</p>
-                            </div>
-                            <div>
-                              <p style={{fontWeight:'bold'}} className="m-0 mt-1">Business Address:</p>
-                              <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
-                            </div>
-                          </div>
+                    <div className="col-md-12 d-flex flex-column justify-content-between">
+                      <div>
+
+                      <img
+                    className="brand-logo img-fluid"
+                    alt="stack admin logo"
+                    src="assets/images/login-logo.jpg"
+                    style={{maxHeight:125,maxWidth:216,minHeight:125,minWidth:216,marginBottom:15}}
+
+                  />
+                        <p style={{ fontWeight: 'bold' }} className="m-0">Business Contact:</p>
+                        <p className="m-0">954-993-2527</p>
+                      </div>
+                      <div>
+                        <p style={{ fontWeight: 'bold' }} className="m-0 mt-1">Business Email:</p>
+                        <p className="m-0 abbb" onClick={(e) => {
+                          window.location = `mailto:NSM@CNTMSERVICES.COM`
+                          e.preventDefault()
+                        }} >NSM@CNTMSERVICES.COM</p>
+                      </div>
+                      <div>
+                        <p style={{ fontWeight: 'bold' }} className="m-0 mt-1">Business Address:</p>
+                        <p className="m-0">13205 SW 42nd St. Miramar, Fl.33027</p>
+                      </div>
+                    </div>
                     <div className="right">
                       <div className="text-center">
                         <h1 className="mt-5 ff-demo">Generate Invoice</h1>
@@ -818,8 +826,9 @@ useEffect(() => {
                         <div className="row">
                           <div className="col-md-6 d-flex flex-column justify-content-between">
                             <div>
+                              <p className="m-0">Address:</p>
                               <p className="m-0">{address}</p>
-                              <p className="m-0">Billing #.844-243-4219</p>
+                              {/* <p className="m-0">Billing #.844-243-4219</p> */}
                             </div>
                             <div>
                               <p className="m-0">Payment Method:</p>
